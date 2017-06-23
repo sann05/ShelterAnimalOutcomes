@@ -116,7 +116,7 @@ test_pred = convert_data(test)
 test_pred = scaler.transform(test_pred)
 
 #Step 2. Realizing algoritm
-max_depth = 0
+max_n = 0
 max_score = 0
 for i in range(5,10):
     model = XGBClassifier(max_depth=i)
@@ -129,8 +129,8 @@ for i in range(5,10):
         max_score = score
         max_n = i
 print('Max Cross validation score =',max_score)
-print('Max max_depth =', max_depth)
-model = XGBClassifier(max_depth=max_depth)
+print('Max max_depth =', max_n)
+model = XGBClassifier(max_depth=max_n)
 model.fit(X,y)
 prediction = model.predict_proba(test_pred)
 
